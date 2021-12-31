@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 func myfunc(ch chan int, wg *sync.WaitGroup) {
@@ -22,7 +23,7 @@ func main() {
 	for i := 0; i < cap(ch); i++ {
 		//fmt.Println(ch)
 		go myfunc(ch, &wg)
-		wg.Add(1)
+		wg.Add(4)
 		//wg1.Add(1)
 		ch <- i + 32
 
@@ -35,16 +36,18 @@ func main() {
 	//wg1 := sync.WaitGroup{}
 	//wg1.Add(len(ch))
 
-	// for res := range ch {
-	// 	//println(len(ch))
-	// 	//wg1.Add(1)
-	// 	fmt.Println(res)
-	// 	wg.Done()
+	for res := range ch {
+		//println(len(ch))
+		//wg1.Add(1)
 
-	// }
+		fmt.Println(res)
+		wg.Done()
+		//
+	}
 
 	//
 	//
+	time.Sleep(1 * time.Second)
 	wg.Wait()
 	//wg1.Wait()
 
