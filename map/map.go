@@ -29,9 +29,9 @@ func main() {
 	abc[14] = 40
 	abc[15] = 50
 
-	_, ok := abc[15]
+	number, ok := abc[15]
 	fmt.Println("\nKey present or not:", ok)
-	//fmt.Println("Value:", number)
+	fmt.Println("Value:", number)
 	fmt.Print("\n", abc)
 
 	xyz := map[int]string{
@@ -45,4 +45,12 @@ func main() {
 
 	fmt.Print("\n", xyz)
 	fmt.Print("\n", xyz1)
+
+	ggg := make(map[int]string)
+	fmt.Print("\nvalue of map made by make", ggg)
+
+	ggg[1] = "aadha"
+	ggg[2] = "bobo"
+	fmt.Print("\nvalue of map made by make after giving data", ggg)
+
 }
