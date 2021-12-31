@@ -28,32 +28,44 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"sync"
 )
 
-func myfunc(ch chan int) {
-
-	fmt.Println(257 + <-ch)
-	time.Sleep(2 * time.Second)
+func myfunc(ch chan int, wg *sync.WaitGroup) {
+	x := <-ch
+	fmt.Println(257 + x)
+	wg.Done()
 	//close(ch)
+	//wg.Wait()
 }
 func main() {
 	fmt.Println("start Main method")
 	// Creating a channel
 	//var ch chan int
 	ch := make(chan int, 3)
+	wg := sync.WaitGroup{}
 
-	go myfunc(ch)
-	// for i := range ch {
-	// 	fmt.Println(i)
-	ch <- 2
-	time.Sleep(2 * time.Second)
+	for i := 0; i < cap(ch); i++ {
+		//fmt.Println(ch)
+		go myfunc(ch, &wg)
+		wg.Add(1)
+		ch <- i + 32
 
-	ch <- 4
-	time.Sleep(2 * time.Second)
-	close(ch)
+		//fmt.Println(ch)
+	}
+	//close(ch)
+	//wg.Wait()
+	println(len(ch))
+
+	// for res := range ch {
+	// 	wg.Add(1)
+	// 	fmt.Printf("\nthe value of res%d\n", (res))
+	// 	wg.Done()
+
 	// }
-	fmt.Println(cap(ch))
+	//
+	wg.Wait()
+	close(ch)
 	fmt.Println("End Main method")
 
 }
