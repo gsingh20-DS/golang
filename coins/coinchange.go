@@ -1,3 +1,5 @@
+// when we need to find the number of coins to get the amount and can take as coins for each denomination
+
 package main
 
 func coingchange(coins []int, length int, amount int) int {
