@@ -73,6 +73,8 @@ p := &y
 for x, j := range abc 
 
 number, ok := abc[15]
+sort.Strings(keys)
+sort.Ints(values) 
 -------------------------------------------------------------------------
 interface:
 var a1 interface{} = 98.76
