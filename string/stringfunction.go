@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func main() {
+func trim() {
 	str1 := "**This is gaurav Singh***     "
 	fmt.Printf("\nsting before  trim %s", str1)
 
@@ -13,5 +13,8 @@ func main() {
 	res2 := strings.TrimSpace(str1)
 
 	fmt.Printf("\nsting after trim %s", res2)
+}
 
+func main() {
+	trim()
 }

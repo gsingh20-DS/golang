@@ -214,3 +214,26 @@ func Unmarshal(data []byte, v interface{}) error
     }
 
     fmt.Printf("%v => %v\n", bytes, r)
+
+
+    -----------------------------------------------------------------------
+    type og variable:
+   1) fmt.Printf("var1 = %T\n", var1)
+   2) fmt.Println("var1 = ", reflect.TypeOf(var1))
+   3) reflect.ValueOf(var1).Kind())
+
+   -----------------------------------------------------------------------
+   How to Map a Rune to the Specified Case in Golang?
+   func To(_case int, r rune) rune
+fmt.Printf("Result 1: %c ", unicode.To(unicode.UpperCase, rune_1))
+
+Check If the Rune is a Letter or not in Golang
+func IsLetter(r rune) bool
+res_1 := unicode.IsLetter(rune_1)
+
+Check If the Rune is a Unicode Punctuation Character or not in Golang
+func IsPunct(r rune) bool
+res_1 := unicode.IsPunct(rune_1)
+
+How to check the specified rune in Golang String?
+func ContainsRune(str string, r rune) bool  
