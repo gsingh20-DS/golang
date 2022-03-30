@@ -96,3 +96,25 @@ WHERE e.departmentid = d.id
       AND NOT EXISTS (SELECT 1 FROM employee e2 WHERE e2.Salary > e.Salary AND e.departmentid = e2.departmentid) 
 
 
+Serverless computing is a cloud computing execution model in which the cloud provider allocates machine 
+resources on demand, taking care of the servers on behalf of their customers. 
+"Serverless" is a misnomer in the sense that servers are still used by cloud service providers to 
+execute code for developers.
+
+Relational Serverless Databases
+
+CockroachDB Serverless
+PlanetScale DB Serverless
+Amazon Aurora Serverless
+[B] NoSQL Serverless Databases
+
+Amazon DynamoDB
+Google FireStore
+Fauna DB
+
+Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, 
+and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure 
+provides all the up-to-date resources needed to keep your applications running
+
+There are currently four durable function types in Azure Functions: activity, orchestrator, entity, and client. 
+The rest of this section goes into more details about the types of functions involved in an orchestration

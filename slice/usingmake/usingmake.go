@@ -19,5 +19,5 @@ func main() {
 	fmt.Printf("\nthe capacity is %d", cap(slice))
 	fmt.Printf("\nthe length is %d", len(slice))
 	fmt.Println(reflect.DeepEqual(slice, slice1))
-	fmt.Println(slice == slice1)
+
 }

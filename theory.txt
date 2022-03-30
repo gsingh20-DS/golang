@@ -24,6 +24,24 @@ Every feature and syntax decision is engineered to make life easier for the prog
 3) Golang is often considered more readable than other languages due to a single standard code format.
 4) Automatic garbage collection is notably more efficient than Java or Python because it executes concurrently alongside the program.
 
+Package:
+The purpose of a package is to design and maintain a large number of programs by grouping related features together 
+into single units so that they can be easy to maintain and understand and independent of the other package programs. 
+This modularity allows them to share and reuse.
+
+
+String:
+it is a sequence of variable-width characters where each and every character is represented by one or more 
+bytes using UTF-8 Encoding.
+
+strings are the immutable chain of arbitrary bytes(including bytes with zero value) or string is a read-only 
+slice of bytes and the bytes of the strings can be represented in the Unicode text using UTF-8 encoding.
+
+
+Pointers:
+A pointer is a special kind of variable that is not only used to store the memory addresses of other variables 
+but also points where the memory is located and provides ways to find out the value stored at that memory location.
+
 built-in-support in GO includes
 Container: container/list , container/heap
 Web Server: net/http
@@ -99,5 +117,28 @@ This property of interfaces is used to achieve polymorphism in Go.
 Untyped constants
 Typed constants
 
+Data Structure – Struct
+Encapsulation → state [“fields”] behaviour [“methods”] export / unexported
+Reusability → Inheritance [“Embedded Types”]
+Polymorphism → Interfaces
+Overriding → Promotion
 
 
+A running program will store objects in two memory locations, the heap and the stack. 
+Garbage collection operates on the heap, not the stack. 
+The stack is a LIFO data structure that stores function values. 
+
+
+Empty struct struct{} is realized in a special way in Go.
+->It’s a smallest building block in Go. It’s size is literally 0 bytes.
+->If it has zero size. you may create a slice of 1000’s empty structures and this slice will be very tiny. 
+    Because really Go stores only a number of them in the slice but not them itself. The same story with channels.
+->All pointers to it always point to the same special place in memory.
+->Very useful in channels when you notify about some event but you don’t need to pass any information about it, 
+    only a fact. Best solution is to pass an empty structure because it will only increment a counter in the channel but not assign memory, copy elements and so on. Sometime people use Boolean values for this purpose, but it’s much worse.
+->Zero size container for methods. You may want have a mock for testing interfaces. Often you don’t need data on it, just methods with predefined input and output.
+->Go has no Set object. Bit can be easily realized as a map[keyType]struct{}. This way map keeps only keys and no values.
+
+
+mikolaj_wiecz@hcl.com
+https://we.tl/t-Qh3khfnRWF

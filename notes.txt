@@ -4,7 +4,7 @@ Var array_name[index] = element
 arr2:= [...]int{9,7,6,4,5,3,2,4}
 
 function
-len(myarray)
+len(myarray) 
 Comparing arrays using == operator
 
 -------------------------------------------------------------------------
@@ -239,3 +239,5 @@ How to check the specified rune in Golang String?
 func ContainsRune(str string, r rune) bool  
 
 https://github.com/gsingh20-DS/golang
+
+https://github.com/gengwensu/chatServerAsync/blob/master/chatServer.go
